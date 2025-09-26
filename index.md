@@ -4,7 +4,6 @@ title: "Big Data Analytics"
 ---
 
 # Welcome to My Data Engineering Blog
-Here you can find posts on data engineering, ML, and data science.
 
 <ul>
 {% for post in site.posts %}
@@ -13,4 +12,3 @@ Here you can find posts on data engineering, ML, and data science.
   </li>
 {% endfor %}
 </ul>
-
