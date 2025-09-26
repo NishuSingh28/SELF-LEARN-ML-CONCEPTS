@@ -2,7 +2,6 @@
 layout: post
 title: "FUNDAMENTALS OF DATA ENGINEERING"
 date: 2025-09-25
-
 ---
 ### 1. What is ERD?
   
