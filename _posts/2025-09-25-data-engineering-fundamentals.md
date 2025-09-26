@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "FUNDAMENTALS OF DATA ENGINEERING"
 date: 2025-09-25
 ---
