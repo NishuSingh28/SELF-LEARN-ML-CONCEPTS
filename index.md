@@ -1,10 +1,15 @@
 ---
-layout: default
-title: "Learn through question and answers"
+layout: home
+title: "Big Data Analytics"
 ---
+# Welcome to My Data Engineering Blog
 
-Here is an index of all my posts. Click on any title to read the full content.
+Here you can find posts on data engineering, ML, and data science.
 
+<ul>
 {% for post in site.posts %}
-  ### [{{ post.title }}]({{ post.url | relative_url }})
+  <li>
+    <a href="{{ post.url }}">{{ post.title }}</a> - <small>{{ post.date | date: "%B %d, %Y" }}</small>
+  </li>
 {% endfor %}
+</ul>
