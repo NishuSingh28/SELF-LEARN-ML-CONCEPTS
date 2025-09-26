@@ -1,6 +1,6 @@
-theme: jekyll-theme-cayman
+theme: jekyll-theme-slate
 title: Big Data Analytics
 description: Contains question and answers on various topics of machine learning, data engineering and data science.
 author: Nishu Kumari SIngh
 show_downloads: false
-permalink: /:title/
+
