@@ -3,6 +3,7 @@ layout: default
 title: "FUNDAMENTALS OF DATA ENGINEERING"
 date: 2025-09-25
 ---
+
 ### 1. What is ERD?
   
 It is a visual representation of entities and the relationships between them in a database.  An ERD provides a standardized, high-level blueprint for a database. It allows us to:
