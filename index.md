@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: default
 title: "Big Data Analytics"
 ---
 # Welcome to My Data Engineering Blog
