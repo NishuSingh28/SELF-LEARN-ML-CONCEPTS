@@ -187,6 +187,7 @@ Avro is widely used in **big data and streaming pipelines** due to its **row-bas
 4. **Data Storage with Schema Evolution**  
    - Long-term storage in **data lakes** or **warehouse staging** often requires schema evolution (adding/removing fields).  
    - Avro ensures older data remains readable even after schema updates.
+
 ### 17. What is ACID wrt to relational model?
 ACID Transactions: Relational databases are built to support ACID properties, which guarantee that database transactions are processed reliably.
 
