@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Regression in Time Series Analysis"
+title: "REGRESSION IN TIME SERIES ANALYSIS"
 date: 2025-09-28
 ---
 
