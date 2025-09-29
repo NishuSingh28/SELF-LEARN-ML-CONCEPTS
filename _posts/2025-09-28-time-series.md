@@ -4,7 +4,7 @@ title: "REGRESSION IN TIME SERIES ANALYSIS"
 date: 2025-09-28
 ---
 
-# Time Series Regression: Residuals, Degrees of Freedom, and R²
+## Time Series Regression: Residuals, Degrees of Freedom, and R²
 
 ## 1. What is Residual Standard Error (RSE)?
 
@@ -256,9 +256,8 @@ Even if the model has:
 Structured residuals indicate the model has left “signal” unexplained that could have been captured.
 
 ---
-# Time Series Residual Diagnostics, Ljung–Box Test, F-Statistic, Multicollinearity, AIC/BIC
 
-## 8. Tools for Residual Diagnostics
+## 8. Time Series Residual Diagnostics, Ljung–Box Test, F-Statistic, Multicollinearity, AIC/BIC
 
 ### 8.1 Plot Residuals
 - Residuals should look like a random scatter around 0.  
@@ -791,8 +790,6 @@ fit_trends <- boston_men |>
 
 **Benefit:** Captures different eras realistically without extreme extrapolation.
 
-# 16. Exercises: Piecewise Trends, Correlation, and Multicollinearity
-
 ## 16.1 Exercise: Piecewise Linear Trend
 
 **Model:**  
@@ -1060,7 +1057,7 @@ $$
 
 ## 17. Matrix Algebra in Regression
 
-### Q1: Why bother?
+### Q1: Why do we need this?
 
 - Ordinary regression:  
 $$
@@ -1080,35 +1077,8 @@ Where:
 
 - Compact representation enables variance analysis, calculus, and predictions
 
-### Q2: Building Blocks
 
-- **Response vector:**  
-$$
-y = \begin{bmatrix} y_1 \\ y_2 \\ \vdots \\ y_T \end{bmatrix}, \quad (T \times 1)
-$$
-
-- **Design matrix:**  
-$$
-X = 
-\begin{bmatrix} 
-1 & x_{1,1} & \dots & x_{k,1} \\ 
-1 & x_{1,2} & \dots & x_{k,2} \\ 
-\vdots & \vdots & \ddots & \vdots \\ 
-1 & x_{1,T} & \dots & x_{k,T} 
-\end{bmatrix}, \quad (T \times (k+1))
-$$
-
-- **Coefficient vector:**  
-$$
-\beta = \begin{bmatrix} \beta_0 \\ \beta_1 \\ \vdots \\ \beta_k \end{bmatrix}, \quad ((k+1) \times 1)
-$$
-
-- **Error vector:**  
-$$
-\varepsilon = \begin{bmatrix} \varepsilon_1 \\ \varepsilon_2 \\ \vdots \\ \varepsilon_T \end{bmatrix}, \quad (T \times 1)
-$$
-
-### Q3: Estimate $\beta$ (OLS)
+### Q2: Estimate $\beta$ (OLS)
 
 Minimize squared errors:
 
@@ -1120,13 +1090,13 @@ $$
 - $X^\top y$ = correlation of predictors with outcome  
 - $(X^\top X)^{-1}$ adjusts for overlap → best linear unbiased estimate
 
-### Q4: Why multicollinearity breaks regression
+### Q3: Why multicollinearity breaks regression
 
 - Perfect collinearity → $X^\top X$ singular → inverse does not exist  
 - High correlation → $(X^\top X)^{-1}$ has large entries  
 - Coefficient variances blow up → unstable signs/magnitudes
 
-### Q5: Fitted Values
+### Q4: Fitted Values
 
 $$
 \hat{y} = X \hat{\beta} = H y, \quad H = X (X^\top X)^{-1} X^\top
@@ -1135,7 +1105,7 @@ $$
 - Hat matrix $H$: symmetric, idempotent  
 - Diagonal entries $h_t$ = leverage
 
-### Q6: Leverage
+### Q5: Leverage
 
 - $h_t$ measures distance of $x_t$ from predictor center  
 - High leverage → observation heavily influences its fitted value  
@@ -1144,7 +1114,7 @@ $$
 h_t > \frac{2(k+1)}{T} \Rightarrow \text{high leverage}
 $$
 
-### Q7: Connection to Cross-Validation
+### Q6: Connection to Cross-Validation
 
 - LOOCV shortcut via hat matrix:
 
