@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Perceptrons"
+title: "PERCEPTRONS"
 date: 2025-10-17
 ---
 
@@ -26,7 +26,7 @@ date: 2025-10-17
 | **18** | What happens to the weights when a point is **correctly classified** but with a small margin? | **Nothing** happens. The classic perceptron only updates on misclassified points, making it sensitive to data near the boundary. |
 | **19** | How does the perceptron algorithm **avoid local minima** when data is linearly separable? | Since the loss is based on margin and only updates on errors, the algorithm is proven to make progress towards *any* separating boundary, not getting stuck locally. |
 | **20** | What loss function is the perceptron loss a **precursor** to in modern ML? | It is a conceptual ancestor to the **Hinge Loss** (used in Support Vector Machines), which introduces a margin and works even when data is non-separable. |
-| **21** | What does the term **'margin'** refer to in the context of perceptron loss? | The margin is the **distance** between a data point and the decision boundary $w^T x + b = 0$. A point is well-classified if it has a large positive margin. |
+| **21** | What does the term **'margin'** refer to in the context of perceptron loss? | The margin ($M_i$) is the **signed distance** from a point ($x_i$) to the decision boundary, given by $M_i=y_i(w^T x_i + b)$. A large positive margin means the point is **correctly classified** and far from the boundary, indicating a confident prediction. |
 | **22** | Why is the total loss function for a dataset $L(w) = \sum_{i \in \text{misclassified}} -y_i (w^T x_i + b)$? | It sums the (positive) penalties from *only* the **misclassified** points, as the loss for correctly classified points is zero. |
 | **23** | What is the significance of the perceptron loss in the **history of AI**? | It was a **foundational** machine learning algorithm, demonstrating the first model that could learn a linear separation, which briefly led to high expectations (the "AI winter" followed). |
 | **24** | How does the perceptron loss relate to the **0-1 loss**? | Perceptron loss is an **upper bound** (surrogate) for the non-convex 0-1 classification error, providing a loss signal even when the 0-1 error is zero. |
