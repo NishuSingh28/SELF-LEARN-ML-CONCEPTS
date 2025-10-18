@@ -1,9 +1,13 @@
 ---
 layout: default
-title: "PERCEPTRONS"
+title: "DEEP LEARNING"
 date: 2025-10-17
 ---
-## Perceptron
+
+# Deep Learning Interview Q&A
+
+## Perceptron Loss Function
+
 | \# | Question | Answer |
 | :---: | :--- | :--- |
 | **1** | What is the **primary objective** of the perceptron loss function? | Its primary objective is to find a set of weights that correctly **separates** the input data points into their respective classes using a linear decision boundary. |
@@ -37,8 +41,10 @@ date: 2025-10-17
 | **29** | How does the update rule ensure that the loss is **reduced** during an iteration? | The update moves $w$ in the direction of the misclassified point's correct class, which inherently **decreases** the misclassification margin (and thus the loss). |
 | **30** | What is the **gradient** of the perceptron loss with respect to the weights $w$ for a misclassified point $i$? | The subgradient is simply **$-y_i x_i$** (multiplied by a positive learning rate), which is used for the weight update. |
 
+---
 
-## MultiLevel Perceptron:
+## Multi-Layer Perceptron (MLP) Intuition and Mathematics
+
 | \# | Question | Answer |
 | :---: | :--- | :--- |
 | **1** | What is the fundamental limitation of a single Perceptron? | A single Perceptron can only create **linear decision boundaries**, making it unable to capture non-linear relationships in the data, such as the XOR problem. |
