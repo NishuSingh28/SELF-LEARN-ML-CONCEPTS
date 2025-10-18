@@ -3,7 +3,7 @@ layout: default
 title: "PERCEPTRONS"
 date: 2025-10-17
 ---
-
+## Perceptron
 | \# | Question | Answer |
 | :---: | :--- | :--- |
 | **1** | What is the **primary objective** of the perceptron loss function? | Its primary objective is to find a set of weights that correctly **separates** the input data points into their respective classes using a linear decision boundary. |
@@ -36,3 +36,38 @@ date: 2025-10-17
 | **28** | In a **vector representation**, what does the sign of $w^T x_i + b$ indicate? | The **predicted class label** for the input vector $x_i$, specifically which side of the decision boundary $x_i$ lies on. |
 | **29** | How does the update rule ensure that the loss is **reduced** during an iteration? | The update moves $w$ in the direction of the misclassified point's correct class, which inherently **decreases** the misclassification margin (and thus the loss). |
 | **30** | What is the **gradient** of the perceptron loss with respect to the weights $w$ for a misclassified point $i$? | The subgradient is simply **$-y_i x_i$** (multiplied by a positive learning rate), which is used for the weight update. |
+
+
+## MultiLevel Perceptron:
+| \# | Question | Answer |
+| :---: | :--- | :--- |
+| **1** | What is the fundamental limitation of a single Perceptron? | A single Perceptron can only create **linear decision boundaries**, making it unable to capture non-linear relationships in the data, such as the XOR problem. |
+| **2** | What is the solution to the single Perceptron's limitation? | The solution is the **Multi-Layer Perceptron (MLP)**, which combines multiple Perceptrons into a larger neural network. |
+| **3** | Conceptually, what role does a Multi-Layer Perceptron play in machine learning? | It acts as a **Universal Function Approximator**, meaning it can theoretically create a decision boundary for any complex, non-linear function. |
+| **4** | What type of activation function is used for the Perceptron in this specific MLP explanation? | A **Sigmoid function** is used instead of the traditional step function, making the Perceptron behave like a logistic regression unit. |
+| **5** | What is the type of output produced by a Sigmoid-activated Perceptron? | The output is a **probability** between 0 and 1, representing the likelihood of a data point belonging to the "yes" class (e.g., placement will happen). |
+| **6** | **(Math/Logic)** Write the formula for the Sigmoid function, $\sigma(Z)$. | The Sigmoid function is $\sigma(Z) = 1 / (1 + e^{-Z})$. It squashes the input $Z$ into the range **(0, 1)**. |
+| **7** | In the Sigmoid-Perceptron, what does the line $W^T X + b = 0$ represent? | It represents the decision boundary where the probability of both classes ("yes" and "no") is exactly **0.5**. |
+| **8** | How does the distance from the decision boundary relate to the output probability? | As a data point moves **farther** away from the boundary into one region, its corresponding **class probability** moves closer to 1 (or 0) for that region. |
+| **9** | Conceptually, how does an MLP combine the decisions of individual Perceptrons? | It takes the decision boundaries of multiple Perceptrons and **superimposes** them, followed by a **smoothing** operation. |
+| **10** | What is the mathematical concept behind superimposition and smoothing in an MLP? | The core mathematical concept is calculating a **linear combination** (weighted sum) of the outputs of the previous layer's Perceptrons. |
+| **11** | **(Math/Logic)** Given $P_1$ and $P_2$ are outputs from Layer 1, what is the structure of the input ($Z_{new}$) to the final output Sigmoid? | $Z_{new}$ is a **weighted combination** plus bias: $Z_{new} = W_1 P_1 + W_2 P_2 + B_{new}$. |
+| **12** | Why does the sum of probabilities (like $P_1 + P_2$) need to be passed through a final activation function? | The sum might exceed 1 (e.g., $0.7 + 0.8 = 1.5$), so the final **Sigmoid function** is necessary to squash the result back into a valid **probability range (0 to 1)**. |
+| **13** | How is **flexibility** added to the linear combination of Perceptron outputs? | Flexibility is added by applying a **weight ($W$)** to each Perceptron's output and adding a **bias ($B$)**, creating a *weighted addition*. |
+| **14** | In the combined output, what do the new weights (e.g., $W=10$ and $W=5$) represent? | They represent the **dominance** or **importance** (the weightage) of the previous layer's Perceptron outputs in determining the final decision. |
+| **15** | **(Math/Logic)** If a Perceptron output is $P_1=0.7$ and $P_2=0.8$, and $W_1=10, W_2=5$, how is $Z_{new}$ formed (ignoring bias)? | $Z_{new}$ is $(10 \times 0.7) + (5 \times 0.8)$, which is $7.0 + 4.0 = **11.0$**. |
+| **16** | How can the final combination step be viewed in terms of Perceptron structure? | The final combination is itself a **new Perceptron** that takes the outputs of the previous Perceptrons as its **inputs**. |
+| **17** | What are the three main types of layers in the resulting MLP architecture? | The three layers are the **Input Layer**, the **Hidden Layer**, and the **Output Layer**. |
+| **18** | In the drawn example, why is it called a "Multi-Layer" Perceptron? | Because the computation now passes through **more than one layer** (Input, Hidden, Output), indicating multiple sequential transformations. |
+| **19** | What is the first way to change the architecture to improve performance, as discussed? | The first way is to increase the **number of nodes/Perceptrons** in the **Hidden Layer**. |
+| **20** | Why would increasing the number of hidden nodes help with complex data? | More hidden nodes allow the network to create and combine **more individual decision boundaries**, enabling the capture of more complex non-linearity. |
+| **21** | **(Math/Logic)** If a third node ($P_3$) is added to the hidden layer, how does the $Z_{new}$ equation change? | An extra term, $W_3 P_3$, must be added to the linear combination: $Z_{new} = W_1 P_1 + W_2 P_2 + W_3 P_3 + B_{new}$. |
+| **22** | What is the second way to change the architecture? When would you use it? | By increasing the **number of nodes** in the **Input Layer**. This is done only when the input data has an **increased number of features/columns**. |
+| **23** | If the input features increase from 2 (CGPA, IQ) to 3, what does the decision boundary change from and to? | The decision boundary changes from a **line** (2D) to a **plane** (3D) in the 3-dimensional input space. |
+| **24** | What is the third way to change the architecture? When is it typically used? | By increasing the **number of nodes** in the **Output Layer**. This is typically done for **Multi-Class Classification** problems. |
+| **25** | How would a three-node output layer work for multi-class classification? | Each output node represents one class (e.g., Dog, Cat, Human), and the class with the **highest probability** is the model's prediction. |
+| **26** | What is the fourth and most significant way to change the architecture, creating a "Deep Neural Network"? | By increasing the **number of Hidden Layers**, stacking them sequentially (e.g., Hidden Layer 1, Hidden Layer 2, etc.). |
+| **27** | Why are deep neural networks effective for very complex non-linear data? | Each layer captures **increasingly complex relationships** from the previous layer's output, allowing the network to build highly intricate decision boundaries. |
+| **28** | In a deep network, what kind of decision boundaries do the early layers typically create? | The early hidden layers (closer to the input) generally create relatively **simple, often linear** decision boundaries. |
+| **29** | **(Logic)** Why are neural networks referred to as "Universal Function Approximators"? | Because by adding enough hidden layers and nodes, they can theoretically model or **approximate any continuous mathematical function** to a desired level of accuracy. |
+| **30** | **(Logic)** What enables the MLP to capture non-linearity, even though each individual Perceptron uses a linear combination? | The non-linearity comes from the **non-linear activation function** (Sigmoid/ReLU) applied *between* the linear combinations in each layer. |
