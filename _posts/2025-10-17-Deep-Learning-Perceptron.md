@@ -4,11 +4,9 @@ title: "DEEP LEARNING"
 date: 2025-10-17
 ---
 
-# Deep Learning Interview Q&A
-
 ## Perceptron Loss Function
 
-| \# | Question | Answer |
+| # | Question | Answer |
 | :---: | :--- | :--- |
 | **1** | What is the **primary objective** of the perceptron loss function? | Its primary objective is to find a set of weights that correctly **separates** the input data points into their respective classes using a linear decision boundary. |
 | **2** | Is the perceptron loss function **differentiable**? Why or why not? | No, it is **not differentiable** because it's a piecewise function with sharp corners (non-smooth) where the decision boundary changes, making gradient-based optimization difficult. |
@@ -45,7 +43,7 @@ date: 2025-10-17
 
 ## Multi-Layer Perceptron (MLP) Intuition and Mathematics
 
-| \# | Question | Answer |
+| # | Question | Answer |
 | :---: | :--- | :--- |
 | **1** | What is the fundamental limitation of a single Perceptron? | A single Perceptron can only create **linear decision boundaries**, making it unable to capture non-linear relationships in the data, such as the XOR problem. |
 | **2** | What is the solution to the single Perceptron's limitation? | The solution is the **Multi-Layer Perceptron (MLP)**, which combines multiple Perceptrons into a larger neural network. |
