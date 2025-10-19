@@ -6,7 +6,7 @@ date: 2025-10-17
 
 ## Perceptron Loss Function
 
-| # | Question | Answer |
+| \# | Question | Answer |
 | :---: | :--- | :--- |
 | **1** | What is the **primary objective** of the perceptron loss function? | Its primary objective is to find a set of weights that correctly **separates** the input data points into their respective classes using a linear decision boundary. |
 | **2** | Is the perceptron loss function **differentiable**? Why or why not? | No, it is **not differentiable** because it's a piecewise function with sharp corners (non-smooth) where the decision boundary changes, making gradient-based optimization difficult. |
@@ -155,7 +155,7 @@ date: 2025-10-17
 
 ## **III. Categorical Cross-Entropy (CCE) & Sparse CCE**
 
-| # | Refined Question | Deep, Interview-Ready Answer |
+| \# | Refined Question | Deep, Interview-Ready Answer |
 | :---: | :--- | :--- |
 | **24** | Categorical Cross-Entropy is the generalization of BCE to multiple classes. What is the corresponding generalization of the sigmoid function, and what critical property does it enforce? | The **Softmax** function generalizes the sigmoid. It takes a vector of K logits and outputs a vector of K probabilities. Its key property is that it enforces a **valid probability distribution**: each output is in (0,1) and the sum of all outputs is exactly 1. This is essential for CCE, which measures the divergence between this predicted distribution and the true one-hot distribution. |
 | **25** | What is the fundamental difference in the format of the true labels `y` required for standard CCE versus Sparse CCE? | - **Standard CCE:** Requires **one-hot encoded** labels. `y` is a vector with a 1 at the index of the true class and 0 elsewhere (e.g., `[0, 1, 0]`).<br>- **Sparse CCE:** Requires **integer labels**. `y` is a scalar representing the index of the true class (e.g., `1`). |
@@ -217,7 +217,7 @@ date: 2025-10-17
 
 ## Gradient Descent and Its Variants
 
-| # | Question | Answer |
+| \# | Question | Answer |
 | :---: | :--- | :--- |
 | **1** | What is the **primary purpose** of Gradient Descent (GD) in machine learning and neural networks? | GD is an **optimization algorithm** whose primary role is to **minimize the loss function** (or objective function) by iteratively adjusting the model's parameters (weights $\mathbf{W}$ and biases $\mathbf{b}$). |
 | **2** | State the mathematical parameter update rule for Gradient Descent. | The update rule is: $$\mathbf{W}_{\text{new}} = \mathbf{W}_{\text{old}} - \eta \nabla_{\mathbf{W}} \mathcal{L}(\mathbf{W})$$ where $\eta$ is the **learning rate** and $\nabla_{\mathbf{W}} \mathcal{L}(\mathbf{W})$ is the **gradient** of the loss $\mathcal{L}$ with respect to the parameters $\mathbf{W}$. |
@@ -272,7 +272,7 @@ date: 2025-10-17
 
 ## Vanishing Gradient Problem (VGP)
 
-| # | Question | Answer |
+| \# | Question | Answer |
 | :---: | :--- | :--- |
 | **1** | Define the **Vanishing Gradient Problem (VGP)** and explain its root cause. | The **VGP** occurs during deep network training where gradients for the **early layers** become **extremely small (vanish)** as they are backpropagated. The root cause is the **multiplication of many small numbers** (derivatives of activation functions) across numerous layers (Chain Rule). |
 | **2** | Why does VGP occur predominantly in **deep** neural networks? | It is specific to **deep networks** because calculating the gradient for an initial layer requires multiplying the derivative of the activation function at *every subsequent layer*. The more layers there are, the more small numbers are multiplied, causing the product to shrink drastically. |
@@ -283,4 +283,4 @@ date: 2025-10-17
 | **7** | How does the **ReLU (Rectified Linear Unit)** activation function fundamentally solve the VGP? What is its derivative? | **ReLU** solves VGP because its derivative is either 0 or 1. For positive inputs ($z>0$), the derivative is $f'(z) = 1$. Since multiplying many $1$'s together does not shrink the product, the gradient can be efficiently propagated without vanishing. |
 | **8** | What is the major drawback associated with ReLU that led to the development of variants like Leaky ReLU? | The drawback is the **"Dying ReLU"** problem. If the input $z$ is negative, the derivative is exactly 0, meaning the neuron's weights receive a zero gradient and **stop updating permanently**. Leaky ReLU addresses this by giving a small, non-zero slope for negative inputs. |
 | **9** | List the **five primary techniques** used to handle the Vanishing Gradient Problem in deep learning. | 1. **Change Activation Function:** Use **ReLU** (or its variants). 2. **Reduce Network Complexity:** (A non-ideal solution, but an option). 3. **Proper Weight Initialization:** Use techniques like **He or Xavier/Glorot initialization**. 4. **Batch Normalization (BN):** Normalize layer inputs/activations (to keep them away from saturated regions of Sigmoid/Tanh). 5. **Residual Networks (ResNets):** Use **Skip Connections** (Residual Blocks) to create direct pathways for the gradient signal. |
-| **10** | Briefly contrast the **Vanishing Gradient Problem (VGP)** with the **Exploding Gradient Problem (EGP)**. | <ul><li>**VGP (Vanishing):** Caused by multiplying derivatives **< 1**. Gradients $\rightarrow 0$. Weights **don't change**.</li><li>**EGP (Exploding):** Caused by multiplying derivatives **> 1**. Gradients $\rightarrow \infty$. Weights change **too drastically/randomly** (model destabilizes).</li><li>**VGP Solution:** ReLU, Batch Norm, ResNets.</li><li>**EGP Solution:** **Gradient Clipping** (limiting the max magnitude of the gradient).</li></ul> |
+| **10** | Briefly contrast the **Vanishing Gradient Problem (VGP)** with the **Exploding Gradient Problem (EGP)**. | <ul><li>**VGP (Vanishing):** Caused by multiplying derivatives $< 1$. Gradients $\rightarrow 0$. Weights **don't change**.</li><li>**EGP (Exploding):** Caused by multiplying derivatives $> 1$. Gradients $\rightarrow \infty$. Weights change **too drastically/randomly** (model destabilizes).</li><li>**VGP Solution:** ReLU, Batch Norm, ResNets.</li><li>**EGP Solution:** **Gradient Clipping** (limiting the max magnitude of the gradient).</li></ul> |
