@@ -2,6 +2,7 @@
 layout: default
 title: "REGRESSION IN TIME SERIES ANALYSIS"
 date: 2025-09-28
+categories: [time-series]
 ---
 
 ## Time Series Regression: Residuals, Degrees of Freedom, and R²
