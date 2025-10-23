@@ -1,10 +1,16 @@
 ---
 layout: default
-title: Topics
-permalink: /topics/
+title: Home
 ---
 
-# Main Topics
+# Welcome to Data Science Concepts
+
+**Concepts Through Questions and Answers**  
+*By Nishu Kumari Singh*
+
+---
+
+## Browse Topics
 
 <ul>
   <li><a href="/machine-learning/">Machine Learning</a></li>
