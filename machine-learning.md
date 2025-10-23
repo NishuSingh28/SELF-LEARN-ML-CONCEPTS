@@ -1,12 +1,10 @@
 ---
 layout: default
 title: Machine Learning
-permalink: /Machine-Learning/
+permalink: /machine-learning/
 ---
 
 # Machine Learning
-
-Here are all posts in this category:
 
 <ul>
   {% for post in site.categories.machine-learning %}
