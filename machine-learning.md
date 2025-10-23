@@ -15,4 +15,3 @@ permalink: /machine-learning/
 </ul>
 
 <p><a href="{{ '/' | relative_url }}">← Back to Home</a></p>
-<p><a href="{{ '/topics/' | relative_url }}">← Browse All Topics</a></p>
