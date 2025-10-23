@@ -2,6 +2,7 @@
 layout: default
 title: "DEEP LEARNING"
 date: 2025-10-17
+categories: [neural-network]
 ---
 
 ## Perceptron Loss Function
