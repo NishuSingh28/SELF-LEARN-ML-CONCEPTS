@@ -2,4 +2,6 @@ title: "DATA SCIENCE"
 description: "CONCEPTS THROUGH QUESTIONS AND ANSWERS"
 author: "Nishu Kumari Singh"
 theme: jekyll-theme-cayman
-permalink: /:categories/:title/
+collections:
+  posts:
+    output: true
