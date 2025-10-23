@@ -4,13 +4,13 @@ title: Topics
 permalink: /topics/
 ---
 
-# Topics
-
-Click a topic to see all posts under it:
+# Main Topics
 
 <ul>
-  <li><a href="/large-language-models/">Large Language Models</a></li>
-  <li><a href="/deep-learning/">Deep Learning</a></li>
-  <li><a href="/time-series/">Time Series</a></li>
-  <li><a href="/machine-learning/">Machine Learning</a></li>
+  <li><a href="{{ '/machine-learning/' | relative_url }}">Machine Learning</a></li>
+  <li><a href="{{ '/deep-learning/' | relative_url }}">Deep Learning</a></li>
+  <li><a href="{{ '/time-series/' | relative_url }}">Time Series</a></li>
+  <li><a href="{{ '/large-language-models/' | relative_url }}">Large Language Models</a></li>
 </ul>
+
+<p><a href="{{ '/' | relative_url }}">← Back to Home</a></p>
