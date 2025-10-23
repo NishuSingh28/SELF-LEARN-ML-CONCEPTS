@@ -1,12 +1,10 @@
 ---
 layout: default
 title: Large Language Models
-permalink: /Large-Language-Models/
+permalink: /large-language-models/
 ---
 
 # Large Language Models
-
-Here are all posts in this category:
 
 <ul>
   {% for post in site.categories.large-language-models %}
