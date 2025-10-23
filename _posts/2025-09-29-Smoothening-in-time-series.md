@@ -2,6 +2,7 @@
 layout: default
 title: "SMOOTHENING IN TIME SERIES ANALYSIS"
 date: 2025-09-29
+categories: [time-series]
 ---
 # Simple Exponential Smoothing (SES)
 
