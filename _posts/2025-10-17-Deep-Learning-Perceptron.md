@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "DEEP LEARNING"
+title: "Perceptrons and Basics"
 date: 2025-10-17
-categories: [neural-network]
+categories: [deep-learning]
 ---
 
 ## Perceptron Loss Function
