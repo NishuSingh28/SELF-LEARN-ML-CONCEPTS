@@ -2,7 +2,7 @@
 layout: default
 title: "NEURAL NETWORK"
 date: 2025-10-17
-categories: [neural-network]
+categories: [deep-learning]
 ---
 
 ## Neural Network Optimization Roadmap
