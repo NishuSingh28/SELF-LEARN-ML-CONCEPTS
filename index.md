@@ -1,11 +1,12 @@
 ---
-layout: default
-title: Home
+layout: page
+title: Data Science
+permalink: /
 ---
 
-# Welcome to My Data Engineering Blog
+# Welcome to My Data Science Blog
 
-Here you can find posts on Data Engineering, ML, and Data Science.
+Here you can explore posts on Data Engineering, ML, and Data Science.
 
 ## Main Topics
 
