@@ -2,7 +2,7 @@
 layout: default
 title: "FUNDAMENTALS OF DATA ENGINEERING"
 date: 2025-09-25
-categories: [Machine-Learning]
+categories: [machine-learning]
 ---
 
 ### 1. What is ERD?
