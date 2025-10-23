@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Perceptrons and Basics"
+title: "PERCEPTRONS AND BASIC OF DEEP NEURAL NETWORK"
 date: 2025-10-17
 categories: [deep-learning]
 ---
