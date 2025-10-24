@@ -2,23 +2,32 @@
 layout: default
 ---
 
-<!-- Page Header: Keep your original title block -->
+<!-- Page Header -->
 <div class="page-header">
   <h1 class="project-name">{{ page.title }}</h1>
 </div>
 
-<!-- Back Buttons: styled and separated -->
+<!-- Debug Info -->
+<div style="background: #fff3cd; border: 1px solid #ffeaa7; padding: 10px; margin: 10px 0; border-radius: 4px; font-size: 14px;">
+  <strong>Debug Info:</strong><br>
+  Page URL: {{ page.url }}<br>
+  URL Parts: {{ page.url | split: '/' | join: ' | ' }}<br>
+  Detected Category: {{ page.url | split: '/' | slice: 1 }}<br>
+  Site Baseurl: {{ site.baseurl }}
+</div>
+
+<!-- Back Buttons -->
 <div style="margin: 15px 0; display: flex; gap: 15px; flex-wrap: wrap;">
   <a href="{{ site.baseurl }}/" 
-     style="text-decoration: none; padding: 5px 10px; background: #0366d6; color: white; border-radius: 4px;">
-    ← Back to Home
+     style="text-decoration: none; padding: 8px 16px; background: #0366d6; color: white; border-radius: 4px; font-weight: 500;">
+    ← Back to SELF-LEARN-ML-CONCEPTS
   </a>
 
-  {% if page.categories and page.categories[0] %}
-    {% assign category_slug = page.categories[0] %}
-    <a href="{{ site.baseurl }}/categories/{{ category_slug }}/" 
-       style="text-decoration: none; padding: 5px 10px; background: #0366d6; color: white; border-radius: 4px;">
-      ← Back to {{ category_slug | capitalize }} Index
+  {% assign category = page.url | split: '/' | slice: 1 %}
+  {% if category != '' and category != 'categories' and category != 'tags' %}
+    <a href="{{ site.baseurl }}/{{ category }}/" 
+       style="text-decoration: none; padding: 8px 16px; background: #28a745; color: white; border-radius: 4px; font-weight: 500;">
+      ← Back to {{ category | replace: '-', ' ' | capitalize }}
     </a>
   {% endif %}
 </div>
