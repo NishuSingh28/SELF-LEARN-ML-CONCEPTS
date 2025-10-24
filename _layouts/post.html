@@ -1,22 +1,29 @@
 ---
 layout: default
 ---
+
+<!-- Page Header: Keep your original title block -->
 <div class="page-header">
   <h1 class="project-name">{{ page.title }}</h1>
 </div>
 
-<!-- Back Buttons -->
-<div class="back-buttons" style="margin: 10px 0; font-size: 0.9em;">
-  <a href="{{ site.baseurl }}/" style="text-decoration: none; color: #0366d6;">← Back to Home</a>
-  {% if page.categories %}
+<!-- Back Buttons: styled and separated -->
+<div style="margin: 15px 0; display: flex; gap: 15px; flex-wrap: wrap;">
+  <a href="{{ site.baseurl }}/" 
+     style="text-decoration: none; padding: 5px 10px; background: #0366d6; color: white; border-radius: 4px;">
+    ← Back to Home
+  </a>
+
+  {% if page.categories and page.categories[0] %}
     {% assign category_slug = page.categories[0] %}
-    |
-    <a href="{{ site.baseurl }}/categories/{{ category_slug }}/" style="text-decoration: none; color: #0366d6;">
+    <a href="{{ site.baseurl }}/categories/{{ category_slug }}/" 
+       style="text-decoration: none; padding: 5px 10px; background: #0366d6; color: white; border-radius: 4px;">
       ← Back to {{ category_slug | capitalize }} Index
     </a>
   {% endif %}
 </div>
 
+<!-- Main Post Content -->
 <div class="main-content">
   {{ content }}
 </div>
