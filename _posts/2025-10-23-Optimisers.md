@@ -219,27 +219,70 @@ $$
 
 #### Momentum Optimization
 
+Let’s rename:
+
 $$
-\begin{aligned}
-v_t &= \beta \cdot v_{t-1} + (1 - \beta) \cdot \nabla J(w_t) \\
-w_{t+1} &= w_t - \eta \cdot v_t
-\end{aligned}
+v_t = \tilde{g_t}
 $$
 
-* $\mathbf{v_t}$: The accumulated velocity (or first moment vector) at time $t$.  
-* $\mathbf{\nabla J(w_t)}$: The instantaneous gradient of the loss function.  
-* $\mathbf{\eta}$: The learning rate.  
-* $\mathbf{\beta}$: The **momentum parameter** ($0 \leq \beta \leq 1$), which controls how much the previous velocity contributes to the current update.
+Now our recursion looks like:
+
+$$
+v_t = \beta v_{t-1} + (1 - \beta) g_t
+$$
+
+and our update rule is:
+
+$$
+w_{t+1} = w_t - \eta v_t
+$$
+
+Now expand the update over two steps:
+
+$$
+w_{t+1} = w_t - \eta (\beta v_{t-1} + (1 - \beta) g_t)
+$$
+
+but we know that
+
+$$
+w_t = w_{t-1} - \eta v_{t-1}
+$$
+
+Substitute this:
+
+$$
+w_{t+1} = w_{t-1} - \eta v_{t-1} - \eta (\beta v_{t-1} + (1 - \beta) g_t)
+$$
+
+Simplify:
+
+$$
+w_{t+1} = w_{t-1} - \eta (1 + \beta) v_{t-1} - \eta (1 - \beta) g_t
+$$
+
+Now see what appears: \(v_{t-1}\), which is proportional to \(w_t - w_{t-1}\).
+
+This means:
+
+$$
+w_{t+1} - w_t = -\eta (1 - \beta) g_t - \eta \beta (w_t - w_{t-1})
+$$
+
+That second term, $\beta (w_t - w_{t-1})$, is literally **velocity**.  
+It says: “Keep moving in the previous direction with damping factor $\beta$.”
 
 ### 3. The Role of Beta ($\beta$) and Mathematical Intuition
 
-The $\beta$ parameter is crucial as it dictates the algorithm’s “memory.”
+The $\beta$ parameter is crucial as it dictates the algorithm’s **memory**.
 
-* **Low-Pass Filter:** The velocity term ($v_t$) acts as a low-pass filter on the gradients, effectively smoothing out high-frequency noise and amplifying consistent directional signals.  
-* **Averaging Window:** $\beta$ determines the effective averaging window, approximately $1/(1-\beta)$.  
-  * **Typical Values:** $\beta = 0.9$ (which means $\approx 10$ past gradients contribute) or $\beta = 0.99$ (for greater historical influence).  
-  * **$\beta = 0$:** The formula reverts to standard Gradient Descent ($v_t = \nabla J(w_t)$).  
-  * **$\beta \approx 1$:** The velocity term has infinite memory, leading to excessive oscillation.
+- **Low-Pass Filter:** The velocity term $v_t$ acts as a low-pass filter on the gradients, effectively smoothing out high-frequency noise and amplifying consistent directional signals.  
+- **Averaging Window:** $\beta$ determines the effective averaging window, approximately $\frac{1}{1-\beta}$.  
+- **Typical Values:**  
+  - $\beta = 0.9$ (which means $\approx 10$ past gradients contribute)  
+  - $\beta = 0.99$ (for greater historical influence)  
+- $\beta = 0$: The formula reverts to standard Gradient Descent $v_t = \nabla J(w_t)$.  
+- $\beta \approx 1$: The velocity term has infinite memory, leading to excessive oscillation.
 
 ### 4. Benefits: Why Momentum Works
 
@@ -306,8 +349,8 @@ $$
 
 ## Parameter Dynamics
 
-- **Momentum coefficient \(\beta\)**: High \(\beta\) (0.9) can cause oscillations in standard momentum, but NAG maintains stability.  
-- **Learning rate \(\eta\)**: Typically 0.01, works well for both methods, but NAG offers better control.
+- **Momentum coefficient** $\beta$: High $\beta$ (e.g., $\beta = 0.9$) can cause oscillations in standard momentum, but NAG maintains stability.  
+- **Learning rate** $\eta$: Typically $\eta = 0.01$, works well for both methods, but NAG offers better control.
 
 ## Performance Characteristics
 
@@ -451,11 +494,17 @@ While powerful, $\text{AdaGrad}$ has a major limitation:
 - **Problem:** Learning rate decays too aggressively over time.  
 - **Cause:** $V_t$ accumulates squared gradients indefinitely (non-decreasing).  
 - **Effect:**  
-  As $V_t \to \infty$,  
-  $$
-  \frac{\eta}{\sqrt{V_t + \epsilon}} \to 0
-  $$  
-  causing the learning rate to **vanish** — training slows and may stop before convergence.
+As $V_t \to \infty$,
+
+$$
+\frac{\eta}{\sqrt{V_t + \epsilon}} \to 0
+$$
+
+causing the effective learning rate to vanish — training slows and may stop before convergence.
+
+
+
+causing the effective learning rate to vanish — training slows and may stop before convergence.
 
 ### Successor Optimizers
 
@@ -590,21 +639,22 @@ This fusion gives ADAM both **stability** (from momentum) and **adaptivity** (fr
 
 ADAM maintains **two moment estimates** for each parameter:
 
-1. **First Moment (Momentum term):**
+**First Moment (Momentum term):**
 
-   $$
-   M_t = \beta_1 \cdot M_{t-1} + (1 - \beta_1) \cdot \nabla J(W_t)
-   $$
+$$
+M_t = \beta_1 \cdot M_{t-1} + (1 - \beta_1) \cdot \nabla J(W_t)
+$$
 
-   *Default:* $\beta_1 = 0.9$
+**Default:** $\beta_1 = 0.9$
 
-2. **Second Moment (RMS term):**
+**Second Moment (RMS term):**
 
-   $$
-   V_t = \beta_2 \cdot V_{t-1} + (1 - \beta_2) \cdot (\nabla J(W_t))^2
-   $$
+$$
+V_t = \beta_2 \cdot V_{t-1} + (1 - \beta_2) \cdot (\nabla J(W_t))^2
+$$
 
-   *Default:* $\beta_2 = 0.999$
+**Default:** $\beta_2 = 0.999$
+
 
 ### Bias Correction
 
