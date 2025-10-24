@@ -5,6 +5,18 @@ layout: default
   <h1 class="project-name">{{ page.title }}</h1>
 </div>
 
+<!-- Back Buttons -->
+<div class="back-buttons" style="margin: 10px 0; font-size: 0.9em;">
+  <a href="{{ site.baseurl }}/" style="text-decoration: none; color: #0366d6;">← Back to Home</a>
+  {% if page.categories %}
+    {% assign category_slug = page.categories[0] %}
+    |
+    <a href="{{ site.baseurl }}/categories/{{ category_slug }}/" style="text-decoration: none; color: #0366d6;">
+      ← Back to {{ category_slug | capitalize }} Index
+    </a>
+  {% endif %}
+</div>
+
 <div class="main-content">
   {{ content }}
 </div>
