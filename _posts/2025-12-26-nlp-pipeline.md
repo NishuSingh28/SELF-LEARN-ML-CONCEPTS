@@ -5,11 +5,6 @@ date: 2025-12-26
 categories: [natural language processing]
 ---
 
-# NLP Pipeline — Concepts, Design & Practical Guide
-
-This is my consolidated, first-person guide to building production-ready Natural Language Processing systems. It presents a complete pipeline — from raw data to deployed product — and explains the rationale behind choices, practical techniques I use, and small reproducible examples.
-
-
 ## 1. Why a pipeline matters
 
 Building an NLP product is rarely just "train a model." It is an engineering process that transforms noisy, real-world language into signals that models and users can rely on. My pipeline is a sequence of intentional stages that ensure reliability, interpretability, and maintainability:
