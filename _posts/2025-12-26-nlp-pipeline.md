@@ -2,7 +2,7 @@
 layout: default
 title: "FUNDAMENTALS OF NLP"
 date: 2025-12-26
-categories: [Natural Language Processing]
+categories: [natural language processing]
 ---
 
 # NLP Pipeline — Concepts, Design & Practical Guide
