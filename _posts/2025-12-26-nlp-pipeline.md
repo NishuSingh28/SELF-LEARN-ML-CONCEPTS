@@ -159,9 +159,9 @@ I design this pipeline with the objective: given two short texts (questions), de
 
 ### Minimal, reproducible code snippets
 
-I show a compact TF-IDF baseline and a small example of normalizing HTML and emojis. Code blocks below are Python examples and are enclosed in triple single quotes as requested.
+Here is a compact TF-IDF baseline and a small example of normalizing HTML and emojis. Code blocks below are Python examples and are enclosed in triple single quotes as requested.
 
-'''python
+'''
 # html_and_emoji_cleaner.py
 import re
 import emoji
@@ -184,11 +184,11 @@ def normalize_text(text: str) -> str:
 # Example
 raw = "<p>I love NLP! 😄 Visit <a href='x'>here</a></p>"
 print(normalize_text(raw))
-# -> "i love nlp ! :smile: visit here"
+#### -> "i love nlp ! :smile: visit here"
 '''
 
-'''python
-# tfidf_similarity_baseline.py
+'''
+#### tfidf_similarity_baseline.py
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
