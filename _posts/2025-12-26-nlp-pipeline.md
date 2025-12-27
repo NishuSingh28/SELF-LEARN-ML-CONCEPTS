@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "FUNDAMENTALS OF NLP"
+title: "NLP PIPELINE"
 date: 2025-12-26
-categories: [natural language processing]
+categories: [natural-language-processing]
 ---
 
 ## 1. Why a pipeline matters
