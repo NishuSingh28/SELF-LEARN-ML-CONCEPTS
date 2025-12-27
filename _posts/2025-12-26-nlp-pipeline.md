@@ -161,8 +161,9 @@ I design this pipeline with the objective: given two short texts (questions), de
 
 Here is a compact TF-IDF baseline and a small example of normalizing HTML and emojis. Code blocks below are Python examples and are enclosed in triple single quotes as requested.
 
-'''
 # html_and_emoji_cleaner.py
+
+```
 import re
 import emoji
 
@@ -184,11 +185,11 @@ def normalize_text(text: str) -> str:
 # Example
 raw = "<p>I love NLP! 😄 Visit <a href='x'>here</a></p>"
 print(normalize_text(raw))
-#### -> "i love nlp ! :smile: visit here"
-'''
+"i love nlp ! :smile: visit here"
+```
 
-'''
 #### tfidf_similarity_baseline.py
+```
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
@@ -200,7 +201,7 @@ corpus = [
 vect = TfidfVectorizer(ngram_range=(1,2)).fit_transform(corpus)
 sim = cosine_similarity(vect[0:1], vect[1:2])[0][0]
 print(f"TF-IDF cosine similarity: {sim:.4f}")
-'''
+```
 
 ## 9. Decision heuristics & rules of thumb
 
