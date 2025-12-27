@@ -19,10 +19,10 @@ title: Home
       <a href="{{ '/large-language-models/' | relative_url }}">Large Language Models</a>
     </li>
     <li style="margin: 1rem 0; font-size: 1.2em;">
-      <a href="{{ '/Natural-Language-Processing/' | relative_url }}">Natural Language Processing</a>
+      <a href="{{ '/natural-language-processing/' | relative_url }}">Natural Language Processing</a>
     </li>
     <li style="margin: 1rem 0; font-size: 1.2em;">
-      <a href="{{ '/Recommendation-System/' | relative_url }}">Recommendation System</a>
+      <a href="{{ '/recommendation-system/' | relative_url }}">Recommendation System</a>
     </li>
   </ul>
 </div>
