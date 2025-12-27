@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "FUNDAMENTALS OF NLP"
-date: 2025-09-25
+date: 2025-12-26
 categories: [Natural Language Processing]
 ---
 
