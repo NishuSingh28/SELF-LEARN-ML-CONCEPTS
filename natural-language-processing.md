@@ -1,13 +1,13 @@
 ---
 layout: default
 title: Natural Language Processing
-permalink: /Natural-Language-Processing/
+permalink: /natural-language-processing/
 ---
 
 # Natural Language Processing Posts
 
 <ul>
-  {% for post in site.categories.Natural-Language-Processing %}
+  {% for post in site.categories.natural-language-processing %}
     <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
   {% else %}
     <li>No posts found in this category.</li>
