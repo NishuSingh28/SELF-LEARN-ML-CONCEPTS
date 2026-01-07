@@ -125,86 +125,74 @@
 
 <!DOCTYPE html>
 <html lang="en-US">
-  <head>
+<head>
     <meta charset="UTF-8">
-    <title>{{ page.title | default: site.title }}</title>
+    <title>{{ page.title }} | {{ site.title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
-      window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          processEscapes: true,
+          processEnvironments: true
+        },
+        options: {
+          skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+        }
+      };
     </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
     <style>
-      /* THE NOTEBOOK LOOK */
-      body {
-        background-color: #ffffff;
-        color: #222;
-        font-family: "Georgia", Times, serif; /* Serifs look better for guides */
-        line-height: 1.7;
-        margin: 0;
-        padding: 0;
-      }
+        /* BASE STYLE */
+        body { font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; background: #fff; margin: 0; }
+        .container { max-width: 850px; margin: 0 auto; padding: 40px 20px; }
+        
+        header { border-bottom: 1px solid #eee; margin-bottom: 30px; padding-bottom: 20px; text-align: left; }
+        h1 { margin: 0; color: #000; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #0366d6; text-decoration: none; font-weight: bold; }
 
-      header {
-        text-align: center;
-        padding: 3rem 1rem;
-        background: #fcfcfc;
-        border-bottom: 1px solid #eee;
-      }
+        /* Q&A FORMATTING */
+        h3 { font-weight: bold; font-size: 1.4rem; margin-top: 2rem; color: #000; }
+        p { margin-bottom: 1.2rem; font-size: 1.1rem; }
 
-      .container {
-        max-width: 780px; /* Standard reading width */
-        margin: 0 auto;
-        padding: 2rem 1.5rem;
-      }
+        /* TABLE FIX: Force borders to appear */
+        table {
+            display: block;
+            width: 100%;
+            overflow: auto;
+            border-spacing: 0;
+            border-collapse: collapse;
+            margin: 20px 0;
+            border: 1px solid #d0d7de; /* Outer boundary */
+        }
+        table th, table td {
+            padding: 10px 15px;
+            border: 1px solid #d0d7de !important; /* Internal grid lines */
+        }
+        table th { background-color: #f6f8fa; font-weight: 600; }
+        table tr:nth-child(even) { background-color: #f6f8fa; }
 
-      /* Q&A STYLING */
-      /* Questions - use ### in your markdown */
-      h2, h3 {
-        font-family: -apple-system, sans-serif;
-        font-weight: 800;
-        color: #000;
-        margin-top: 2.5rem;
-        margin-bottom: 0.5rem;
-        line-height: 1.3;
-      }
-
-      /* Answers */
-      p {
-        margin-bottom: 1.5rem;
-        font-size: 1.15rem;
-      }
-
-      .back-link {
-        display: block;
-        margin-bottom: 2rem;
-        text-decoration: none;
-        color: #0366d6;
-        font-weight: bold;
-        font-family: sans-serif;
-      }
-
-      /* Hide Cayman's default elements */
-      .page-header, .main-content { padding: 0 !important; max-width: none !important; margin: 0 !important; }
+        /* Formula spacing */
+        .MathJax { font-size: 1.1em !important; margin: 10px 0; }
     </style>
-  </head>
-  <body>
-
-    <header>
-      <h1 style="margin:0;">{{ site.title }}</h1>
-      <p style="color:#666; margin-top:5px;">{{ site.description }}</p>
-    </header>
-
+</head>
+<body>
     <div class="container">
-      {% if page.url != "/" and page.url != "/index.html" %}
-        <a href="{{ '/' | relative_url }}" class="back-link">← Back Home</a>
-      {% endif %}
+        <header>
+            <h1>{{ site.title }}</h1>
+            <p style="color: #666;">{{ site.description }}</p>
+        </header>
 
-      <main>
-        {{ content }}
-      </main>
+        {% if page.url != "/" %}
+            <a href="{{ '/' | relative_url }}" class="back-link">← Back to Index</a>
+        {% endif %}
+
+        <main>
+            {{ content }}
+        </main>
     </div>
-
-  </body>
+</body>
 </html>
