@@ -4,103 +4,62 @@
     <meta charset="UTF-8">
     <title>{{ page.title | default: site.title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
     
     <script>
-      window.MathJax = {
+      MathJax = {
         tex: {
           inlineMath: [['$', '$'], ['\\(', '\\)']],
-          displayMath: [['$$', '$$']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
           processEscapes: true
         }
       };
     </script>
+    
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
     <style>
-      /* 1. Reset and Layout */
-      body {
-        background-color: #ffffff;
-        color: #333;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        line-height: 1.6;
-        margin: 0;
-      }
+    .main-content {
+      max-width: 90% !important;
+      margin: 0 auto !important;
+      padding: 2rem 1rem !important;
+    }
 
-      /* 2. Simplified Header */
-      .page-header {
-        background: #f8f9fa !important;
-        background-image: none !important; /* Removes the Cayman green gradient */
-        border-bottom: 1px solid #eee;
-        padding: 2rem 1rem;
-        text-align: center;
-      }
+    .page-header {
+      padding: 3rem 2rem !important;
+    }
 
-      .project-name { color: #222 !important; margin: 0; font-size: 2rem; }
-      .project-tagline { color: #666 !important; font-weight: normal; margin-top: 0.5rem; }
-
-      /* 3. Reading Container */
+    @media screen and (min-width: 64em) {
       .main-content {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 2rem 1.5rem;
+        max-width: 85% !important;
       }
+    }
 
-      /* 4. Q&A Styling */
-      /* Questions: Bold and Dark */
-      h2, h3 {
-        color: #000;
-        font-weight: bold;
-        margin-top: 2.5rem;
-        margin-bottom: 1rem;
+    @media screen and (min-width: 80em) {
+      .main-content {
+        max-width: 80% !important;
       }
-
-      /* Answers: Normal */
-      p { margin-bottom: 1.5rem; font-size: 1.1rem; }
-
-      /* 5. TABLE FIX: Explicit borders */
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        margin: 2rem 0;
-        border: 2px solid #333; /* Thick outer boundary */
-      }
-
-      th, td {
-        border: 1px solid #333 !important; /* Clear inner grid lines */
-        padding: 12px;
-        text-align: left;
-      }
-
-      th { background-color: #f2f2f2; font-weight: bold; }
-      tr:nth-child(even) { background-color: #fafafa; }
-
-      /* 6. Back Button */
-      .back-btn {
-        display: inline-block;
-        margin-bottom: 2rem;
-        padding: 8px 16px;
-        background: #0366d6;
-        color: white !important;
-        text-decoration: none;
-        border-radius: 4px;
-        font-weight: bold;
-      }
+    }
     </style>
+
   </head>
   <body>
+    <section class="page-header">
+      <h1 class="project-name">{{ site.title | default: site.github.repository_name }}</h1>
+      <h2 class="project-tagline">{{ site.description | default: site.github.project_tagline }}</h2>
+    </section>
 
-    <header class="page-header">
-      <h1 class="project-name">{{ site.title }}</h1>
-      <h2 class="project-tagline">{{ site.description }}</h2>
-    </header>
+    <!-- ADD BACK BUTTON HERE -->
+    <div style="margin: 20px auto; max-width: 90%; padding: 0 1rem;">
+      <a href="{{ '/' | relative_url }}" 
+         style="text-decoration: none; padding: 8px 16px; background: #0366d6; color: white; border-radius: 4px; font-weight: 500; display: inline-block;">
+        ← Back to Home
+      </a>
+    </div>
 
-    <main class="main-content">
-      {% if page.url != "/" and page.url != "/index.html" %}
-        <a href="{{ '/' | relative_url }}" class="back-btn">← Back to Home</a>
-      {% endif %}
-
+    <section class="main-content">
       {{ content }}
-    </main>
+    </section>
 
   </body>
 </html>
